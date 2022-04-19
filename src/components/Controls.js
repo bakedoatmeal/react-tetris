@@ -1,6 +1,6 @@
 import React from "react";
 
-const Controls(props) = () => {
+const Controls = (props) => {
   return (
     <div className="controls">
       <button className="control-button" onClick={(e) => {
