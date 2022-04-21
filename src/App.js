@@ -1,3 +1,8 @@
+import React from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducers from './reducers';
+
 import './App.css';
 import GridSquare from './components/GridSquare';
 import GridBoard from './components/GridBoard';
@@ -8,16 +13,18 @@ import MessagePopup from './components/MessagePopup';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Tetris Redux</h1>
-      </header>
-      <GridBoard/>
-      <NextBlock/>
-      <ScoreBoard/>
-      <Controls/>
-      <MessagePopup/>
-    </div>
+    <Provider >
+      <div className="App">
+        <header className="App-header">
+          <h1 className="App-title">Tetris Redux</h1>
+        </header>
+        <GridBoard/>
+        <NextBlock/>
+        <ScoreBoard/>
+        <Controls/>
+        <MessagePopup/>
+      </div>
+    </Provider>
   );
 }
 
