@@ -22,8 +22,15 @@ const gameReducer = (state = defaultState(), action) => {
       }
       return state
     case MOVE_RIGHT:
+      if (canMoveTo(shape, grid, x + 1, y, rotation)) {
+        return { ...state, x: x + 1 }
+      }
       return state
     case MOVE_LEFT:
+      // subtract 1 from the x and check if this new position is possible by calling `canMoveTo()
+      if (canMoveTo(shape, grid, x - 1, y, rotation)) {
+        return { ...state, x: x - 1 }
+      }
       return state
     case MOVE_DOWN:
       return state
