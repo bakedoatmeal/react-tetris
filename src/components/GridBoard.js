@@ -3,7 +3,7 @@ import GridSquare from './GridSquare';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useRef } from 'react';
 import { shapes } from '../utils';
-import { moveDown } from '../actions'
+import { moveDown } from '../reducers/actions'
 
 const GridBoard = (props) => {
   const requestRef = useRef()

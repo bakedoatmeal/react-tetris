@@ -1,7 +1,7 @@
 import {
   MOVE_RIGHT, MOVE_LEFT, MOVE_DOWN, ROTATE,
   PAUSE, RESUME, RESTART, GAME_OVER
-} from '../actions'
+} from './actions'
 
 import {
   defaultState,
@@ -43,8 +43,19 @@ const gameReducer = (state = defaultState(), action) => {
           return { ...state, y: maybeY }
       }
       // If not place the block
-      const newGrid = addBlockToGrid(shape, grid, x, y, rotation)
+      const obj = addBlockToGrid(shape, grid, x, y, rotation)
       // reset some things to start a new shape/block
+      const newGrid = obj.grid
+      const gameOver = obj.gameOver
+      
+      if (gameOver) {
+        // Game over
+        const newState = { ...state }
+        newState.shape = 0
+        newState.grid = newGrid
+        return { ...state, gameOver: true }
+      }
+
       const newState = defaultState()
       newState.grid = newGrid
       newState.shape = nextShape

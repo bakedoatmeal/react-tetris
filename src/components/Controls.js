@@ -5,30 +5,35 @@ import { moveDown, moveLeft, moveRight, rotate } from '../reducers/actions'
 const Controls = (props) => {
   
   const dispatch = useDispatch();
-  const isRunning = useSelector((state) => state.isRunning);
+  const isRunning = useSelector((state) => state.game.isRunning);
+  const gameOver = useSelector((state) => state.game.gaveOver);
 
   return (
     <div className="controls">
       <button className="control-button" onClick={(e) => {
-        if (isRunning) {
+          if (!isRunning || gameOver ) {return}
           dispatch(moveLeft())
-        }
-      }}>Left</button>
+      }}
+				disabled={!isRunning || gameOver}
+      >Left</button>
       <button className="control-button" onClick={(e) => {
-        if (isRunning) {
+          if (!isRunning || gameOver ) {return}
           dispatch(moveRight())
-        }
-      }}>Right</button>
+      }}
+				disabled={!isRunning || gameOver}
+      >Right</button>
       <button className="control-button" onClick={(e) => {
-        if (isRunning) {
+          if (!isRunning || gameOver ) {return}
           dispatch(rotate())
-        }
-      }}>Rotate</button>
+      }}
+			disabled={!isRunning || gameOver}
+      >Rotate</button>
       <button className="control-button" onClick={(e) => {
-        if (isRunning) {
+          if (!isRunning || gameOver ) {return}
           dispatch(moveDown())
-        }
-      }}>Down</button>
+      }}
+				disabled={!isRunning || gameOver}
+      >Down</button>
     </div>
   )
 }
