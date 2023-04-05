@@ -14,14 +14,6 @@ const GridBoard = (props) => {
   const game = useSelector((state) => state.game);
   const { grid, shape, rotation, x, y, isRunning, speed } = game
 
-  // const grid = [];
-  // for (let row = 0; row < 18; row = row + 1) {
-  //   grid.push([])
-  //   for (let col = 0; col < 10; col = col + 1) {
-  //     grid[row].push(<GridSquare key={`${col}${row}`} color="1" />)
-  //   }
-  // }
-
   const block = shapes[shape][rotation]
   const blockColor = shape
 

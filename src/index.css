@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
 }
 
 code {
@@ -13,7 +14,7 @@ code {
 }
 
 :root {
-  --bg-color: rgba(150, 150, 150, 1);
+  --bg-color: rgb(46, 41, 41);
 
   /* Border Colors are all transparent colors. These will tint or shade the background color of the square. */
   --border-left-color: rgba(255, 255, 255, 0.20);
@@ -41,7 +42,7 @@ code {
   --tile-size: 20px for example will set size of the grid squares. */
   --cols: 10;
   --rows: 18;
-  --tile-size: 20px;
+  --tile-size: 30px;
   --border-width: 5px;
 }
 
@@ -151,6 +152,9 @@ and 'b'. The '.' represents an empty cell on the grid. */
 
 .score-board {
   grid-area: r;
+  color: white;
+  padding: 20px;
+  margin: 10px;
 }
 
 /* controls */
@@ -172,6 +176,10 @@ and 'b'. The '.' represents an empty cell on the grid. */
   border-left-color: var(--button-color-l);
   border-right-color: var(--button-color-r);
   border-bottom-color: var(--button-color-b);
+}
+
+.control-button[disabled] {
+  color: white;
 }
 
 /* Message Popup Styles */
